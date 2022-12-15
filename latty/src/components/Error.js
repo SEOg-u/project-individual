@@ -42,7 +42,7 @@ const Box = styled.div`
   width: 900px;
   height: 750px;
   background-color: #ffffff;
-  box-shadow: 4px 4px 20px rgba(0, 0, 0, 0.3);
+  box-shadow: 4px 4px 20px rgba(0, 0, 0, 0.35);
   border-radius: 15px;
 `;
 
