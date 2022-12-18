@@ -3,13 +3,16 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 import Error from "./components/Error";
 import Practice from "./Practice";
+import SignUp from "./pages/auth/SignUp";
+import LogIn from "./pages/auth/LogIn";
 
 const Router = () => {
   return (
     <CookiesProvider>
       <BrowserRouter>
         <Routes>
-          <Route path="/" element={<Practice />} />
+          <Route path="/signup" element={<SignUp />} />
+          <Route path="/login" element={<LogIn />} />
           <Route path="*" element={<Error />} />
         </Routes>
       </BrowserRouter>
