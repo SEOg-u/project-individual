@@ -1,3 +1,5 @@
 export { default as sadFace } from "./img/SadFace.png";
-export { default as warningXBt } from "./img/WarningXBt.png";
-export { default as exclamationMark } from "./img/ExclamationMark.png";
+export { default as logo } from "./img/Logo.png";
+// export { default as blackNew } from "./img/BlackNew.png";
+// export { default as greenNew } from "./img/GreenNew.png";
+export { default as nextBt } from "./img/NextBt.png";
