@@ -166,6 +166,7 @@ const SignUp = () => {
   // STEP 3.나만의 숫자
   const checkStep3 = () => {
     errorNumber();
+
     if (check) {
       // axios 연동
       axios.post({
@@ -175,6 +176,24 @@ const SignUp = () => {
         },
       });
       navigate("/login");
+    }
+  };
+
+  // nuumber input enterkey 눌렀을 때 경로
+  const onKeyPress = (e) => {
+    if (e.key === "Enter") {
+      errorNumber();
+
+      if (check) {
+        // axios 연동
+        axios.post({
+          url: `${BASE_URL}/user/signup`,
+          data: {
+            number: number,
+          },
+        });
+        navigate("/login");
+      }
     }
   };
 
@@ -248,6 +267,7 @@ const SignUp = () => {
                 <S.Title>나만의 숫자</S.Title>
                 <S.Input
                   onChange={onChange}
+                  onKeyPress={onKeyPress}
                   name="number"
                   value={number}
                   type="text"
