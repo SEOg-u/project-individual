@@ -2,6 +2,7 @@ import * as S from "./style";
 import { useState } from "react";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { useNavigate } from "react-router-dom";
 import axios from "axios";
 
 // images
@@ -14,6 +15,8 @@ const SignUp = () => {
   let check = true;
   const [image, setImage] = useState("BlackNew");
   const [step, setStep] = useState(1);
+  const [bt, setBt] = useState(false);
+  const navigate = useNavigate();
   const BASE_URL = "노드 공부하시죠. ^^";
 
   // input value 변수
@@ -95,6 +98,8 @@ const SignUp = () => {
   };
   // 2-1. number
   const errorNumber = () => {
+    const reg = /[0-9]/gi;
+
     // 숫자 입력 안 했을 때
     if (number === "") {
       toast.error("숫자를 입력해 주세요.", {
@@ -104,7 +109,12 @@ const SignUp = () => {
       check = false;
     }
     // 나만의 숫자 형식 틀렸을 때
-    else if (number < -9999999999 || number > 9999999999 || number === "-0") {
+    else if (
+      number < -9999999999 ||
+      number > 9999999999 ||
+      number === "-0" ||
+      !reg.test(number)
+    ) {
       toast.error("잘못된 숫자 형식입니다.", {
         position: toast.POSITION.TOP_RIGHT,
         autoClose: 1300,
@@ -156,10 +166,7 @@ const SignUp = () => {
   // STEP 3.나만의 숫자
   const checkStep3 = () => {
     errorNumber();
-
     if (check) {
-      setStep(4);
-
       // axios 연동
       axios.post({
         url: `${BASE_URL}/user/signup`,
@@ -167,6 +174,7 @@ const SignUp = () => {
           number: number,
         },
       });
+      navigate("/login");
     }
   };
 
@@ -226,7 +234,7 @@ const SignUp = () => {
                 />
               </div>
 
-              <S.BtWrapper>
+              <S.BtWrapper style={{ marginTop: "50px" }} bt={bt}>
                 <S.Bt onClick={checkStep1}>
                   <S.Img1 src={nextBt} alt="NextBt" />
                 </S.Bt>
@@ -247,7 +255,7 @@ const SignUp = () => {
                 />
               </div>
 
-              <S.BtWrapper>
+              <S.BtWrapper style={{ marginTop: "50px" }} bt={bt}>
                 <S.Bt onClick={checkStep3}>
                   <S.Img1 src={nextBt} alt="NextBt" />
                 </S.Bt>
