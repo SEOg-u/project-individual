@@ -3,7 +3,7 @@ import styled from "styled-components";
 // styles
 
 // styled-components
-const Wrapper = styled.div`
+export const Wrapper = styled.div`
   width: 100vw;
   height: 100vh;
   display: flex;
@@ -11,36 +11,36 @@ const Wrapper = styled.div`
   align-items: center;
   background-color: #dee1ce;
 `;
-const Box = styled.div`
+export const Box = styled.div`
   width: 800px;
   height: 100%;
   background-color: #ffffff;
 `;
-const Body = styled.div`
+export const Body = styled.div`
   margin-left: 100px;
   margin-top: ${({ step }) =>
     step === 1 || step === 3 || step === 4 ? "60px" : "45px"};
   width: 600px;
 `;
 
-const STEP1 = styled.div`
+export const STEP1 = styled.div`
   display: ${({ step }) => (step !== 1 ? "none" : "block")};
 `;
-const STEP2 = styled.div`
+export const STEP2 = styled.div`
   display: ${({ step }) => (step !== 2 ? "none" : "block")};
 `;
-const STEP3 = styled.div`
+export const STEP3 = styled.div`
   display: ${({ step }) => (step !== 3 ? "none" : "block")};
 `;
 
-const Title = styled.p`
+export const Title = styled.p`
   font-family: "Pretendard";
   font-style: normal;
   font-weight: 600;
   font-size: 24px;
   color: #444444;
 `;
-const Input = styled.input`
+export const Input = styled.input`
   margin-top: 10px;
   padding: 0 40px 0 40px;
   width: 518px;
@@ -55,7 +55,7 @@ const Input = styled.input`
     color: #808080;
   }
 `;
-const Error = styled.div`
+export const Error = styled.div`
   margin-top: 2px;
   height: 15px;
   font-size: 11.5px;
@@ -63,31 +63,15 @@ const Error = styled.div`
   font-weight: 700;
 `;
 
-const BtWrapper = styled.div`
-  margin-top: 50px;
+export const BtWrapper = styled.div`
   display: flex;
-  justify-content: end;
+  justify-content: ${({ bt }) => (bt ? "space-between" : "end")};
 `;
-const Bt = styled.button`
+export const Bt = styled.button`
   background-color: transparent;
   border: none;
   cursor: pointer;
 `;
-const Img1 = styled.img`
+export const Img1 = styled.img`
   width: 53px;
 `;
-
-export {
-  Wrapper,
-  Box,
-  Body,
-  STEP1,
-  STEP2,
-  STEP3,
-  Title,
-  Input,
-  Error,
-  BtWrapper,
-  Bt,
-  Img1,
-};
