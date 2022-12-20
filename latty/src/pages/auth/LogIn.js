@@ -94,7 +94,8 @@ const LogIn = () => {
 
     if (check) {
       // axios 연동
-      axios.post({
+      axios({
+        method: "POST",
         url: `${BASE_URL}/user/login`,
         data: {
           nickname: nickname,
