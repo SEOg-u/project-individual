@@ -1,4 +1,5 @@
-import * as S from "./style";
+import * as S from "../style";
+import * as C from "./style";
 import { useState } from "react";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
@@ -6,15 +7,16 @@ import { useNavigate } from "react-router-dom";
 import axios from "axios";
 
 // images
-import { nextBt } from "../../assets";
+import { nextBt, search } from "../../../assets";
 // components
-import AuthHeader from "../../components/AuthHeader";
+import AuthHeader from "../../../components/AuthHeader";
+import UserList from "../../../components/UserList";
 
 const SignUp = () => {
   // 변수 선언
   let check = true;
   const [image, setImage] = useState("BlackNew");
-  const [step, setStep] = useState(1);
+  const [step, setStep] = useState(2);
   const [bt, setBt] = useState(false);
   const navigate = useNavigate();
   const BASE_URL = "노드 공부하시죠. ^^";
@@ -133,11 +135,12 @@ const SignUp = () => {
     if (check) {
       setErrorN("");
       setErrorNick("");
-      setStep(3); // setStep(2);
+      setStep(2); // setStep(2);
       setImage("GreenNew");
 
       // axios 연동
-      axios.post({
+      axios({
+        method: "POST",
         url: `${BASE_URL}/user/signup`,
         data: {
           name: name,
@@ -154,7 +157,8 @@ const SignUp = () => {
       setImage("BlackNew");
 
       // axios 연동
-      axios.post({
+      axios({
+        method: "POST",
         url: `${BASE_URL}/user/signup`,
         data: {
           number: number,
@@ -169,7 +173,8 @@ const SignUp = () => {
 
     if (check) {
       // axios 연동
-      axios.post({
+      axios({
+        method: "POST",
         url: `${BASE_URL}/user/signup`,
         data: {
           number: number,
@@ -186,7 +191,8 @@ const SignUp = () => {
 
       if (check) {
         // axios 연동
-        axios.post({
+        axios({
+          method: "POST",
           url: `${BASE_URL}/user/signup`,
           data: {
             number: number,
@@ -260,7 +266,88 @@ const SignUp = () => {
               </S.BtWrapper>
             </S.STEP1>
 
-            <S.STEP2 step={step}></S.STEP2>
+            <S.STEP2 step={step}>
+              <div>
+                <S.Title style={{ color: "#000000" }}>
+                  새로운 회원가입 정보 기능
+                </S.Title>
+
+                <S.Explain>
+                  전화번호나 이메일 없이도 가입할 수 있습니다.
+                </S.Explain>
+              </div>
+
+              <S.CheckBox>
+                <C.Body>
+                  <C.Header>
+                    <C.Title>나만의 숫자 중복 확인</C.Title>
+                  </C.Header>
+
+                  <C.Nav>
+                    <div
+                      style={{
+                        width: "246px",
+                        display: "flex",
+                        justifyContent: "space-between",
+                        alignItems: "center",
+                      }}
+                    >
+                      <C.Number>숫자</C.Number>
+                      <C.Input />
+                      <C.Bt>
+                        <C.Img2 src={search} alt="Search" />
+                      </C.Bt>
+                    </div>
+                  </C.Nav>
+
+                  <div>
+                    <C.SearchBox>
+                      <div
+                        style={{
+                          width: "140px",
+                          height: "100%",
+                          display: "flex",
+                          justifyContent: "center",
+                          alignItems: "center",
+                        }}
+                      >
+                        <C.P>사용자</C.P>
+                      </div>
+                      <div
+                        style={{
+                          width: "394px",
+                          height: "100%",
+                          display: "flex",
+                          justifyContent: "center",
+                          alignItems: "center",
+                          borderLeft: "1px solid #6C7139",
+                        }}
+                      >
+                        <C.P>숫자</C.P>
+                      </div>
+                    </C.SearchBox>
+                  </div>
+
+                  <UserList />
+                </C.Body>
+              </S.CheckBox>
+
+              <div style={{ marginTop: "20px" }}>
+                <ul>
+                  <S.P>
+                    ⦁ 원하는 숫자를 골라 중복 확인을 한 후 개인정보 대신 사용해
+                    보세요.
+                  </S.P>
+                  <S.P>⦁ 정수 범위는 -9,999,999,999 ~ 9,999,999,999입니다.</S.P>
+                </ul>
+              </div>
+
+              <S.BtWrapper style={{ marginTop: "35px" }} bt={bt}>
+                <S.Bt onClick={checkStep2}>
+                  <S.Img1 src={nextBt} alt="NextBt" />
+                </S.Bt>
+              </S.BtWrapper>
+            </S.STEP2>
 
             <S.STEP3 step={step}>
               <div style={{ marginTop: "80px" }}>
