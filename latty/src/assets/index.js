@@ -4,3 +4,4 @@ export { default as logo } from "./img/Logo.png";
 // export { default as greenNew } from "./img/GreenNew.png";
 export { default as nextBt } from "./img/NextBt.png";
 export { default as beforeBt } from "./img/BeforeBt.png";
+export { default as search } from "./img/Search.png";
