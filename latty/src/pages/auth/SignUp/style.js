@@ -2,11 +2,11 @@ import styled from "styled-components";
 
 // styled-components
 export const Body = styled.div`
-  margin: 11px 0 0 25px;
+  margin: 17px 0 0 25px;
   width: 550px;
 `;
 export const Header = styled.div`
-  height: 33px;
+  height: 35px;
   border-bottom: 1px solid #d9d9d9;
 `;
 export const Title = styled.p`
@@ -17,7 +17,7 @@ export const Title = styled.p`
 `;
 
 export const Nav = styled.div`
-  margin-top: 8px;
+  margin-top: 12px;
   height: 55px;
   display: flex;
   justify-content: center;
@@ -57,19 +57,21 @@ export const Img2 = styled.img`
   height: 13px;
 `;
 
-export const SearchBox = styled.div`
-  margin-top: 8px;
-  width: 550px;
-  height: 40px;
-  display: flex;
-  background: #e5e8d4;
-  border-width: 2px 1px 1px 1px;
-  border-style: solid;
-  border-color: #6c7139;
-`;
-export const P = styled.p`
-  font-size: 14px;
-  font-family: "Pretendard";
-  font-style: normal;
-  font-weight: 500;
+export const ScrollWrapper = styled.div`
+  position: absolute;
+  margin-top: 12px;
+  text-align: center;
+  height: 258px;
+  overflow-y: auto;
+
+  &::-webkit-scrollbar {
+    width: 15px;
+    background: #e5e8d4;
+    border-width: 1px 1px 1px 0;
+    border-style: solid;
+    border-color: #6c7139;
+  }
+  &::-webkit-scrollbar-thumb {
+    background-color: #6c7139;
+  }
 `;
