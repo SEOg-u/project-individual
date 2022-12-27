@@ -5,12 +5,16 @@ import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
+import dummy from "../../../DB/data.json";
 
-// images
-import { nextBt, search } from "../../../assets";
 // components
 import AuthHeader from "../../../components/AuthHeader";
 import UserList from "../../../components/UserList";
+// images
+import { nextBt, search } from "../../../assets";
+
+// BASE_URL
+const BASE_URL = "노드 공부하시죠. ^^";
 
 const SignUp = () => {
   // 변수 선언
@@ -19,7 +23,6 @@ const SignUp = () => {
   const [step, setStep] = useState(2);
   const [bt, setBt] = useState(false);
   const navigate = useNavigate();
-  const BASE_URL = "노드 공부하시죠. ^^";
 
   // input value 변수
   const [inputs, setInputs] = useState({
@@ -28,8 +31,9 @@ const SignUp = () => {
     pw: "",
     checkPw: "",
     number: "",
+    value: null,
   });
-  const { name, nickname, pw, checkPw, number } = inputs;
+  const { name, nickname, pw, checkPw, number, value } = inputs;
 
   // error message 변수
   const [errorN, setErrorN] = useState(""); // name error message
@@ -125,6 +129,13 @@ const SignUp = () => {
     }
   };
 
+  // 검색 기능 함수
+  const searchSpace = (e) => {
+    let keyword = e.target.value;
+
+    this.setInputs({ value: keyword });
+  };
+
   // 회원가입 확인 함수'S
   // STEP 1. 회원가입
   const checkStep1 = () => {
@@ -139,15 +150,15 @@ const SignUp = () => {
       setImage("GreenNew");
 
       // axios 연동
-      axios({
-        method: "POST",
-        url: `${BASE_URL}/user/signup`,
-        data: {
-          name: name,
-          nickname: name,
-          pw: pw,
-        },
-      });
+      // axios({
+      //   method: "POST",
+      //   url: `https://${BASE_URL}/user/signup`,
+      //   data: {
+      //     name: name,
+      //     nickname: name,
+      //     pw: pw,
+      //   },
+      // });
     }
   };
   // STEP 2. NEW
@@ -157,13 +168,13 @@ const SignUp = () => {
       setImage("BlackNew");
 
       // axios 연동
-      axios({
-        method: "POST",
-        url: `${BASE_URL}/user/signup`,
-        data: {
-          number: number,
-        },
-      });
+      // axios({
+      //   method: "POST",
+      //   url: `https://${BASE_URL}/user/signup`,
+      //   data: {
+      //     number: number,
+      //   },
+      // });
     }
   };
 
@@ -173,13 +184,13 @@ const SignUp = () => {
 
     if (check) {
       // axios 연동
-      axios({
-        method: "POST",
-        url: `${BASE_URL}/user/signup`,
-        data: {
-          number: number,
-        },
-      });
+      // axios({
+      //   method: "POST",
+      //   url: `https://${BASE_URL}/user/signup`,
+      //   data: {
+      //     number: number,
+      //   },
+      // });
       navigate("/login");
     }
   };
@@ -191,13 +202,13 @@ const SignUp = () => {
 
       if (check) {
         // axios 연동
-        axios({
-          method: "POST",
-          url: `${BASE_URL}/user/signup`,
-          data: {
-            number: number,
-          },
-        });
+        // axios({
+        //   method: "POST",
+        //   url: `https://${BASE_URL}/user/signup`,
+        //   data: {
+        //     number: number,
+        //   },
+        // });
         navigate("/login");
       }
     }
@@ -293,42 +304,24 @@ const SignUp = () => {
                       }}
                     >
                       <C.Number>숫자</C.Number>
-                      <C.Input />
+                      <C.Input
+                        onChange={(e) => {
+                          onChange();
+                          this.searchSpace(e);
+                        }}
+                        name="search"
+                        value={value}
+                        type="text"
+                      />
                       <C.Bt>
                         <C.Img2 src={search} alt="Search" />
                       </C.Bt>
                     </div>
                   </C.Nav>
 
-                  <div>
-                    <C.SearchBox>
-                      <div
-                        style={{
-                          width: "140px",
-                          height: "100%",
-                          display: "flex",
-                          justifyContent: "center",
-                          alignItems: "center",
-                        }}
-                      >
-                        <C.P>사용자</C.P>
-                      </div>
-                      <div
-                        style={{
-                          width: "394px",
-                          height: "100%",
-                          display: "flex",
-                          justifyContent: "center",
-                          alignItems: "center",
-                          borderLeft: "1px solid #6C7139",
-                        }}
-                      >
-                        <C.P>숫자</C.P>
-                      </div>
-                    </C.SearchBox>
-                  </div>
-
-                  <UserList />
+                  <C.ScrollWrapper>
+                    <UserList value={value} />
+                  </C.ScrollWrapper>
                 </C.Body>
               </S.CheckBox>
 
