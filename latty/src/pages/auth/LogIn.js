@@ -11,12 +11,14 @@ import AuthHeader from "../../components/AuthHeader";
 // images
 import { beforeBt, nextBt } from "../../assets";
 
+// BASE_URL
+const BASE_URL = "노드 공부하시죠. ^^";
+
 const LogIn = () => {
   // 변수 선언
   const [cookies, setCookie] = useCookies(["accessToken"]); // Cookie hook
   const navigate = useNavigate();
   let check = true;
-  const BASE_URL = "노드 공부하시죠. ^^";
   const [bt, setBt] = useState(true);
   const [image, setImage] = useState("BlackNew");
   const [step, setStep] = useState(4);
@@ -94,15 +96,15 @@ const LogIn = () => {
 
     if (check) {
       // axios 연동
-      axios({
-        method: "POST",
-        url: `${BASE_URL}/user/login`,
-        data: {
-          nickname: nickname,
-          pw: pw,
-          number: number,
-        },
-      });
+      // axios({
+      //   method: "POST",
+      //   url: `https://${BASE_URL}/user/login`,
+      //   data: {
+      //     nickname: nickname,
+      //     pw: pw,
+      //     number: number,
+      //   },
+      // });
     }
   };
 
