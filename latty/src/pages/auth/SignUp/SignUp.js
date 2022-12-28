@@ -5,11 +5,10 @@ import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
-import dummy from "../../../DB/data.json";
 
 // components
 import AuthHeader from "../../../components/AuthHeader";
-import UserList from "../../../components/UserList";
+import NumberList from "../../../components/NumberList";
 // images
 import { nextBt, search } from "../../../assets";
 
@@ -20,7 +19,7 @@ const SignUp = () => {
   // 변수 선언
   let check = true;
   const [image, setImage] = useState("BlackNew");
-  const [step, setStep] = useState(2);
+  const [step, setStep] = useState(1);
   const [bt, setBt] = useState(false);
   const navigate = useNavigate();
 
@@ -320,7 +319,7 @@ const SignUp = () => {
                   </C.Nav>
 
                   <C.ScrollWrapper>
-                    <UserList value={value} />
+                    <NumberList value={value} />
                   </C.ScrollWrapper>
                 </C.Body>
               </S.CheckBox>
