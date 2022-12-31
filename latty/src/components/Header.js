@@ -174,7 +174,7 @@ const Header = () => {
 
                 <div style={{ width: "45px" }} />
 
-                <Link to="/writinglist">
+                <Link to="/diary">
                   <P style={{ color: "#000000" }}>
                     일기 쓰기
                     <Icon src={icon4} alt="📝" />
@@ -237,7 +237,7 @@ export default Header;
 const Wrapper = styled.div`
   position: fixed;
   width: 100vw;
-  height: 105px;
+  height: 95px;
   display: flex;
   justify-content: space-between;
   align-items: center;
