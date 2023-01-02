@@ -7,6 +7,8 @@ export { default as beforeBt } from "./img/BeforeBt.png";
 export { default as search } from "./img/Search.png";
 export { default as headerLine } from "./img/HeaderLine.png";
 export { default as colon } from "./img/Colon.png";
+export { default as profile } from "./img/Profile.png";
+export { default as weatherIcon } from "./img/WeatherIcon.png";
 
 // icons
 export { default as icon1 } from "./img/👋.png";
