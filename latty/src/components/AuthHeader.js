@@ -9,7 +9,7 @@ const AuthHeader = ({ step, image }) => {
     <Wrapper>
       <Header>
         <Link to="/">
-          <Img1 src={logo} alt="Logo" />
+          <Img src={logo} alt="Logo" />
         </Link>
       </Header>
 
@@ -35,7 +35,7 @@ const AuthHeader = ({ step, image }) => {
               }}
             >
               <P>STEP 2.</P>
-              <Img2
+              <Img1
                 src={require(`../assets/img/${image}.png`)}
                 alt={`${image}`}
               />
@@ -94,7 +94,7 @@ const Header = styled.div`
   display: flex;
   justify-content: center;
 `;
-const Img1 = styled.img``;
+const Img = styled.img``;
 
 const Texts = styled.ol`
   display: flex;
@@ -132,7 +132,7 @@ const Pin = styled(pStyle)`
   margin-left: 8px;
   font-weight: 400;
 `;
-const Img2 = styled.img`
+const Img1 = styled.img`
   margin-left: 7px;
   width: 40px;
   height: 14px;
