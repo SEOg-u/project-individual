@@ -194,7 +194,7 @@ const Header = () => {
                 <Clock>{hour}</Clock>
 
                 <div style={{ width: "10px" }} />
-                <Img3 src={colon} alt="Colon" />
+                <Img1 src={colon} alt="Colon" />
                 <div style={{ width: "10px" }} />
 
                 <div
@@ -208,7 +208,7 @@ const Header = () => {
                 </div>
 
                 <div style={{ width: "10px" }} />
-                <Img3 src={colon} alt="Colon" />
+                <Img1 src={colon} alt="Colon" />
                 <div style={{ width: "10px" }} />
 
                 <div
@@ -285,6 +285,6 @@ const Clock = styled.p`
   font-weight: 500;
   color: #444444;
 `;
-const Img3 = styled.img`
+const Img1 = styled.img`
   width: 10px;
 `;
