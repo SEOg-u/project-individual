@@ -185,41 +185,25 @@ const Header = () => {
               <div style={{ width: "464px" }} />
 
               <ClockWrapper>
-                <Clock>{date}</Clock>
+                <Clock style={{ width: "240px" }}>{date}</Clock>
 
                 <div style={{ width: "23px" }} />
                 <Img src={headerLine} alt="HeaderLine" />
                 <div style={{ width: "23px" }} />
 
-                <Clock>{hour}</Clock>
+                <Clock style={{ width: "55px" }}>{hour}</Clock>
 
                 <div style={{ width: "10px" }} />
                 <Img1 src={colon} alt="Colon" />
                 <div style={{ width: "10px" }} />
 
-                <div
-                  style={{
-                    width: "53.5px",
-                    display: "flex",
-                    justifyContent: "center",
-                  }}
-                >
-                  <Clock>{minute}</Clock>
-                </div>
+                <Clock style={{ width: "53.5px" }}>{minute}</Clock>
 
                 <div style={{ width: "10px" }} />
                 <Img1 src={colon} alt="Colon" />
                 <div style={{ width: "10px" }} />
 
-                <div
-                  style={{
-                    width: "53.5px",
-                    display: "flex",
-                    justifyContent: "center",
-                  }}
-                >
-                  <Clock>{second}</Clock>
-                </div>
+                <Clock style={{ width: "53.5px" }}>{second}</Clock>
               </ClockWrapper>
             </InAfter>
           </AfterWrapper>
@@ -279,6 +263,8 @@ const ClockWrapper = styled.div`
   align-items: center;
 `;
 const Clock = styled.p`
+  display: flex;
+  justify-content: center;
   font-size: 44px;
   font-family: "Pretendard";
   font-style: normal;
