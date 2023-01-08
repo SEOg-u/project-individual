@@ -74,9 +74,9 @@ const SignUp = () => {
         autoClose: 1300,
       });
       check = false;
-    } // 별명 15자 이하 아닐 때
-    else if (nickname.length >= 15) {
-      setErrorNick("15자 이하로 작성해 주세요.");
+    } // 별명 11자 이하 아닐 때
+    else if (nickname.length >= 11) {
+      setErrorNick("11자 이하로 작성해 주세요.");
       check = false;
     } else {
       setErrorNick("");
@@ -313,7 +313,7 @@ const SignUp = () => {
                         type="text"
                       />
                       <C.Bt>
-                        <C.Img2 src={search} alt="Search" />
+                        <C.Img1 src={search} alt="Search" />
                       </C.Bt>
                     </div>
                   </C.Nav>
